@@ -18,8 +18,10 @@ steps:
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
 
-- task: AzureCLI@1
+- task: AzureCLI@2
+  displayName: "Create resource group"
   inputs:
     azureSubscription: 'ARM'
+    scriptType: 'pscore'
     scriptLocation: 'scriptPath'
-    scriptPath: '01-ResourceGroup.azcli'
+    scriptPath: '01-ResourceGroup.ps1'
