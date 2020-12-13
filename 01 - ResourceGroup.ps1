@@ -4,5 +4,7 @@
 
     $rgExists = (az group exists --name $rgName)
 
-    if (-not $rgExists) then {az group create --name $rgName --location $defaultLocation}
+    if (-not $rgExists) then {
+        az group create --name $rgName --location $defaultLocation
+    }
     
