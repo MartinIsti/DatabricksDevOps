@@ -24,4 +24,4 @@ steps:
     azureSubscription: 'ARM'
     scriptType: 'pscore'
     scriptLocation: 'scriptPath'
-    scriptPath: '01-ResourceGroup.ps1'
+    scriptPath: '01 - ResourceGroup.ps1'
