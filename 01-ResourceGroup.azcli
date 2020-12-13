@@ -1,1 +1,1 @@
-az group delete --name 'RG-Test' --yes
+az group delete --resource-group 'RG-Test' --yes
