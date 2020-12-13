@@ -3,4 +3,4 @@
 
     #az group create --name $rgName --location 'australiaeast'
 
-    az group delete --name $rgName
+    az group delete --name $rgName --yes
