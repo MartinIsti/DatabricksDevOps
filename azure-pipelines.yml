@@ -23,4 +23,4 @@ steps:
     azureSubscription: 'ARM'
     scriptType: 'bash'
     scriptLocation: 'scriptPath'
-    scriptPath: 'DatabricksDevOps/01 - ResourceGroup.azcli'
+    scriptPath: '01-ResourceGroup.azcli'
