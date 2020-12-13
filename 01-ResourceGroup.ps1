@@ -1,1 +1,1 @@
-az group delete --resource-group 'RG-Test'
+az group create --name 'RG-Test' --location 'australiaeast'
