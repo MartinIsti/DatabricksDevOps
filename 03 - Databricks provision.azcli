@@ -1,0 +1,8 @@
+# data bricks
+    $rgName = 'RG-Test' #to be parameterised
+
+    az extension add --name databricks
+
+    az databricks workspace create --resource-group $rgName --name 'databricks-test' --location 'australiaeast' --sku trial
+
+    #az databricks workspace delete --resource-group 'RG-Test' --name 'databricks-test'
