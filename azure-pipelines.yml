@@ -35,8 +35,6 @@ steps:
     scriptType: 'pscore'
     scriptLocation: 'inlineScript'
     inlineScript: |
-      az upgrade
-      
       [CmdletBinding()]
       param(
         $defLoc
