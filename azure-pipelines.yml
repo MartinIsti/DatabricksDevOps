@@ -31,6 +31,9 @@ steps:
 
 - script: az --version
   displayName: 'Show Azure CLI version'
+  
+- script: az --upgrade
+  displayName: 'Show Azure CLI version'
 
 - task: AzureCLI@2
   inputs:
