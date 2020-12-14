@@ -41,4 +41,4 @@ steps:
     scriptType: 'pscore'
     scriptLocation: 'scriptPath'
     scriptPath: 'ParameterTest.ps1'
-    arguments: '-rgName $(rgName)'
+    arguments: '-rgName $(rgName) -defaultLocation $(defaultLocation)'
