@@ -9,7 +9,7 @@
     $defaultLocation = 'australiaeast'
 
 # Login
-    az login
+    #az login
     az account set --subscription $subscriptionName
     az devops configure --defaults organization=https://dev.azure.com/$orgName
 
