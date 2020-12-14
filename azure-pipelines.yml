@@ -13,44 +13,8 @@ variables:
 - group: EnvVars
 
 steps:
-- script: echo $REGION
+- script: |
+    echo $REGION
+    echo $subscriptionName
   displayName: 'Run a one-line script'
 
-- task: PowerShell@2
-  inputs:
-    targetType: 'inline'
-    script: '$env:subscriptionName'
-- task: AzureCLI@2
-  inputs:
-    azureSubscription: 'ARM'
-    scriptType: 'pscore'
-    scriptLocation: 'inlineScript'
-    inlineScript: |
-      [CmdletBinding()]
-           param (
-               [string]$varSample
-           )
-           
-           Write-Output $varSample
-    arguments: '-varSample "$(subscriptionName)"'
-
-#- task: AzureCLI@2
-#  displayName: "Create resource group"
-#  inputs:
-#    ConnectedServiceNameSelector: 'ConnectedServiceNameARM'
-#    ConnectedServiceNameARM: 'ARM'
-#    ScriptType: 'FilePath'
-#    ScriptPath: '01 - ResourceGroup.ps1'
-#    ScriptArguments: '-subscriptionName "$(subscriptionName)" -SubscriptionId $(subscription_id) -TenantId $(tenant_id) -orgName $(orgName) -rgName $(rgName) -defaultLocation $(defaultLocation)'
-#- task: AzureCLI@2
-#  displayName: "Create resource group"
-#  inputs:
-#    azureSubscription: 'ARM'
-#    scriptType: 'pscore'
-#    scriptLocation: 'scriptPath'
-#    scriptPath: '01 - ResourceGroup.ps1'
-
-#- task: PowerShell@2
-#  inputs:
-#    filePath: '01 - ResourceGroup.ps1'
-#    arguments: '-subscriptionName "$(subscriptionName)" -SubscriptionId $(subscription_id) -TenantId $(tenant_id) -orgName $(orgName) -rgName $(rgName) -defaultLocation $(defaultLocation)'
