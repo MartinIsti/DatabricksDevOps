@@ -10,7 +10,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- bash: echo $(subscriptionName)
+- bash: echo $($env:subscriptionName)
 
 #- task: AzureCLI@2
 #  displayName: "Create resource group"
