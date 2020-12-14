@@ -49,4 +49,4 @@ steps:
     scriptType: 'pscore'
     scriptLocation: 'scriptPath'
     scriptPath: 'ParameterTest.ps1'
-    arguments: '-defLoc $(defaultLocation)'
+    arguments: '-defaultLocaction $(defaultLocation)'
