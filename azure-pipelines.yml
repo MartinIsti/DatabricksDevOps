@@ -13,6 +13,9 @@ steps:
 - script: echo $env:subscriptionName
   displayName: 'Run a one-line script'
 
+- script: echo $(varSubscriptionName)
+  displayName: 'Run a one-line script 2'
+
 - task: PowerShell@2
   inputs:
     targetType: 'inline'
