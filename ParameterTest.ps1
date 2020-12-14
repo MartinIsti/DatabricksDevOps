@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-  $paramDefaultLocation
+  $defLoc
 )
 
-Write-Host ($paramDefaultLocation)
+Write-Host "Value of default location is $defLoc"
