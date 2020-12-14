@@ -3,4 +3,4 @@ param(
   $paramDefaultLocation
 )
 
-Write-Host "Value of default location is"
+Write-Host ("Value of default location is" + $paramDefaultLocation)
