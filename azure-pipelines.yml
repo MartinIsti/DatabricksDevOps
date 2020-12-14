@@ -10,8 +10,13 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: echo $($env:subscriptionName)
+- script: echo $env:subscriptionName
   displayName: 'Run a one-line script'
+
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: '$env:subscriptionName'
 
 
 #- task: AzureCLI@2
