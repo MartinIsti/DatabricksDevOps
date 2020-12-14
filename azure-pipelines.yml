@@ -10,11 +10,16 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: AzurePowerShell@1
-  displayName: "Create resource group"
+#- task: AzurePowerShell@1
+#  displayName: "Create resource group"
+#  inputs:
+#    ConnectedServiceNameSelector: 'ConnectedServiceNameARM'
+#    ConnectedServiceNameARM: 'ARM'
+#    ScriptType: 'FilePath'
+#    ScriptPath: '01 - ResourceGroup.ps1'
+#    ScriptArguments: '-subscriptionName "$(subscriptionName)" -SubscriptionId $(subscription_id) -TenantId $(tenant_id) -orgName $(orgName) -rgName $(rgName) -defaultLocation $(defaultLocation)'
+
+- task: PowerShell@2
   inputs:
-    ConnectedServiceNameSelector: 'ConnectedServiceNameARM'
-    ConnectedServiceNameARM: 'ARM'
-    ScriptType: 'FilePath'
-    ScriptPath: '01 - ResourceGroup.ps1'
-    ScriptArguments: '-subscriptionName "$(subscriptionName)" -SubscriptionId $(subscription_id) -TenantId $(tenant_id) -orgName $(orgName) -rgName $(rgName) -defaultLocation $(defaultLocation)'
+    filePath: '01 - ResourceGroup.ps1'
+    arguments: '-subscriptionName "$(subscriptionName)" -SubscriptionId $(subscription_id) -TenantId $(tenant_id) -orgName $(orgName) -rgName $(rgName) -defaultLocation $(defaultLocation)'
