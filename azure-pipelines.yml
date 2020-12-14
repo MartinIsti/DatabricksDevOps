@@ -13,6 +13,9 @@ variables:
 - group: EnvVars
 
 steps:
-- script: echo $SUBSCRIPTIONNAME
+- script: |
+    echo "$SUBSCRIPTIONNAME" $SUBSCRIPTIONNAME
+    echo "$subscriptionName" $subscriptionName
+    echo "$(subscriptionName)" $(subscriptionName)
   displayName: 'Run a one-line script'
 
