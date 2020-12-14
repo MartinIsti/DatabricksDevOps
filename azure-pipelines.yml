@@ -21,13 +21,13 @@ steps:
     echo $(defaultLocation)
   displayName: 'Show variables'
 
-- task: AzureCLI@2
-  inputs:
-    azureSubscription: 'ARM'
-    scriptType: 'pscore'
-    scriptLocation: 'inlineScript'
-    inlineScript: |
-      Write-Host "The value of project_name is $env:project_name"
+#- task: AzureCLI@2
+#  inputs:
+#    azureSubscription: 'ARM'
+#    scriptType: 'pscore'
+#    scriptLocation: 'inlineScript'
+#    inlineScript: |
+#      Write-Host "The value of project_name is $env:project_name"
 
 - task: AzureCLI@2
   inputs:
