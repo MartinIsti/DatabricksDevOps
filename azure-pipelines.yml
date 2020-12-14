@@ -10,7 +10,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-- group: dev_us-east-2
+- group: EnvVars
 
 steps:
 - script: echo $REGION
