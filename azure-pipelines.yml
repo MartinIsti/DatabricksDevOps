@@ -9,12 +9,12 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-steps:
-- script: echo $env:subscriptionName
-  displayName: 'Run a one-line script'
+variables:
+- group: EnvironmentConfigurationVariables
 
-- script: echo $(varSubscriptionName)
-  displayName: 'Run a one-line script 2'
+steps:
+- script: echo $subscriptionName
+  displayName: 'Run a one-line script'
 
 - task: PowerShell@2
   inputs:
