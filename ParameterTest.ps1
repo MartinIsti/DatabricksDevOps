@@ -5,4 +5,7 @@ param(
 
 $rgExists = (az group exists --name $rgName)
 
-Write-Host "Does RG exist? Hmm. The answer is: $rgExists"
+if ($rgExists -eq 'false') {
+#if (-not $rgExists) {
+    az group create --name $rgName --location $defaultLocation
+}
