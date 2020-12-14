@@ -32,8 +32,8 @@ steps:
   inputs:
     azureSubscription: 'ARM'
     scriptType: 'pscore'
-    scriptLocation: 'scriptPath'
-    scriptPath: '00 - Preparation.ps1'
+    scriptLocation: 'inlineScript'
+    inlineScript: az upgrade
 
 - task: AzureCLI@2
   inputs:
