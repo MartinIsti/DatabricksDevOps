@@ -25,3 +25,4 @@ steps:
     scriptType: 'pscore'
     scriptLocation: 'scriptPath'
     scriptPath: '01 - ResourceGroup.ps1'
+    arguments: '-subscriptionName "$(subscriptionName)" -SubscriptionId $(subscription_id) -TenantId $(tenant_id) -orgName $(orgName) -rgName $(rgName) -defaultLocation $(defaultLocation)'
