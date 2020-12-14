@@ -14,7 +14,6 @@ variables:
 
 steps:
 - script: |
-    echo $REGION
     echo $subscriptionName
   displayName: 'Run a one-line script'
 
