@@ -32,7 +32,7 @@ steps:
 - script: az --version
   displayName: 'Show Azure CLI version'
   
-- script: az upgrade
+- script: az upgrade --yes
   displayName: 'Upgrade Azure CLI version if needed'
 
 - task: AzureCLI@2
