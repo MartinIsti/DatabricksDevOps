@@ -10,6 +10,8 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+- bash: echo $(subscriptionName)
+
 #- task: AzureCLI@2
 #  displayName: "Create resource group"
 #  inputs:
@@ -18,13 +20,13 @@ steps:
 #    ScriptType: 'FilePath'
 #    ScriptPath: '01 - ResourceGroup.ps1'
 #    ScriptArguments: '-subscriptionName "$(subscriptionName)" -SubscriptionId $(subscription_id) -TenantId $(tenant_id) -orgName $(orgName) -rgName $(rgName) -defaultLocation $(defaultLocation)'
-- task: AzureCLI@2
-  displayName: "Create resource group"
-  inputs:
-    azureSubscription: 'ARM'
-    scriptType: 'pscore'
-    scriptLocation: 'scriptPath'
-    scriptPath: '01 - ResourceGroup.ps1'
+#- task: AzureCLI@2
+#  displayName: "Create resource group"
+#  inputs:
+#    azureSubscription: 'ARM'
+#    scriptType: 'pscore'
+#    scriptLocation: 'scriptPath'
+#    scriptPath: '01 - ResourceGroup.ps1'
 
 #- task: PowerShell@2
 #  inputs:
