@@ -11,10 +11,13 @@ pool:
 
 variables:
 - group: dev_us-east-1
+- name: sub_name
+  value: 'Microsoft Azure Enterprise'
 
 steps:
 - script: |
     echo $REGION
     echo $subscriptionName
     echo $REGION
+    echo $(sub_name)
   displayName: 'Show Variable Values'
