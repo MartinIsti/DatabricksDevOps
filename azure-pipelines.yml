@@ -42,4 +42,4 @@ steps:
       )
       
       Write-Host "Value of default location is $defLoc"
-    arguments: '-defLoc $(DEFAULTLOCATION)'
+    arguments: '-defLoc $(defaultLocation)'
