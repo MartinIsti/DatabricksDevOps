@@ -20,7 +20,19 @@ steps:
   inputs:
     targetType: 'inline'
     script: '$env:subscriptionName'
-
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'ARM'
+    scriptType: 'pscore'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      [CmdletBinding()]
+           param (
+               [string]$varSample
+           )
+           
+           Write-Output $varSample
+    arguments: '-varSample "$(subscriptionName)"'
 
 #- task: AzureCLI@2
 #  displayName: "Create resource group"
