@@ -10,12 +10,12 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-- group: EnvVars
+- group: EnvironmentVariables
 
 steps:
 - script: |
-    echo "$SUBSCRIPTIONNAME" $SUBSCRIPTIONNAME
-    echo "$subscriptionName" $subscriptionName
-    echo "$(subscriptionName)" $(subscriptionName)
-  displayName: 'Run a one-line script'
+    echo $defaultLocation
+    echo $DEFAULTLOCATION
+    echo $(defaultLocation)
+  displayName: 'Show variables'
 
