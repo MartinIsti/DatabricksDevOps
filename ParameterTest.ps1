@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-  $defaultLocaction
+  $rgName
 )
 
-Write-Host "Value of default location is $defaultLocaction"
+Write-Host "Value of default location is $rgName"
