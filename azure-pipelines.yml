@@ -29,25 +29,11 @@ steps:
 #    inlineScript: |
 #      Write-Host "The value of project_name is $env:project_name"
 
-- script: az --version
-  displayName: 'Show Azure CLI version'
+#- script: az --version
+#  displayName: 'Show Azure CLI version'
   
-- script: az upgrade --yes
-  displayName: 'Upgrade Azure CLI version if needed'
-
-- task: AzureCLI@2
-  inputs:
-    azureSubscription: 'ARM'
-    scriptType: 'pscore'
-    scriptLocation: 'inlineScript'
-    inlineScript: |
-      [CmdletBinding()]
-      param(
-        $defLoc
-      )
-      
-      Write-Host "Value of default location is $defLoc"
-    arguments: '-defLoc $(defaultLocation)'
+#- script: az upgrade --yes
+#  displayName: 'Upgrade Azure CLI version if needed'
 
 - task: AzureCLI@2
   inputs:
