@@ -38,8 +38,15 @@ steps:
       [CmdletBinding()]
       param(
         $defLoc
-      
       )
       
       Write-Host "Value of default location is $defLoc"
     arguments: '-defLoc $(defaultLocation)'
+
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'ARM'
+    scriptType: 'pscore'
+    scriptLocation: 'scriptPath'
+    scriptPath: '01 - ResourceGroup'
+    arguments: '-$paramDefaultLocation $(defaultLocation)'
