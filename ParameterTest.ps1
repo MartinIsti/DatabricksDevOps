@@ -3,4 +3,6 @@ param(
   $rgName
 )
 
-Write-Host "Value of default location is $rgName"
+$rgExists = (az group exists --name $rgName)
+
+Write-Host "Does RG exist? Hmm. The answer is: $rgExists"
