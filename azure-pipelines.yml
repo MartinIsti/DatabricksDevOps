@@ -40,5 +40,5 @@ steps:
     azureSubscription: 'ARM'
     scriptType: 'pscore'
     scriptLocation: 'scriptPath'
-    scriptPath: 'ParameterTest.ps1'
+    scriptPath: '01 - ResourceGroup.ps1'
     arguments: '-rgName $(rgName) -defaultLocation $(defaultLocation)'
