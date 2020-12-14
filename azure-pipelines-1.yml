@@ -13,6 +13,4 @@ steps:
 
 - script: |
     echo $REGION
-    echo $STATE_BUCKET
-    echo $INSTANCE_SIZE
   displayName: 'Show Variable Values'
