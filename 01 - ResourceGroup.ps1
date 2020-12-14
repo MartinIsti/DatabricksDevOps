@@ -1,12 +1,39 @@
+[CmdletBinding()]
+param (
+    [Parameter(Mandatory)]
+    [ValidateNotNullOrEmpty()]
+    [string]$subscriptionName,
+
+    [Parameter(Mandatory)]
+    [ValidateNotNullOrEmpty()]
+    [string]$subscriptionId,
+
+    [Parameter(Mandatory)]
+    [ValidateNotNullOrEmpty()]
+    [string]$tenantId,
+
+    [Parameter(Mandatory)]
+    [ValidateNotNullOrEmpty()]
+    [string]$orgName,
+
+    [Parameter(Mandatory)]
+    [ValidateNotNullOrEmpty()]
+    [string]$rgName,
+
+    [Parameter(Mandatory)]
+    [ValidateNotNullOrEmpty()]
+    [string]$defaultLocation
+)
+
 # Parameters
-    $subscriptionName = 'Microsoft Azure Enterprise'
-    $subscriptionId = '88ac0d8e-21ae-4e09-bc04-fcc13e4bcec8'
-    $tenantId = '4c5789e1-0364-48a8-88ba-09202a830218'
-    $orgName = 'istvanmartinka2'
+    #$subscriptionName = 'Microsoft Azure Enterprise'
+    #$subscriptionId = '88ac0d8e-21ae-4e09-bc04-fcc13e4bcec8'
+    #$tenantId = '4c5789e1-0364-48a8-88ba-09202a830218'
+    #$orgName = 'istvanmartinka2'
     $gitHubRepoUrl = "https://github.com/$orgName/<repo name>"
 
-    $rgName = 'RG-Test' #to be parameterised
-    $defaultLocation = 'australiaeast'
+    #$rgName = 'RG-Test' #to be parameterised
+    #$defaultLocation = 'australiaeast'
 
 # Login
     #az login
@@ -22,3 +49,5 @@
     #if (-not $rgExists) {
         az group create --name $rgName --location $defaultLocation
     }
+
+    # az group delete --name $rgName --yes
