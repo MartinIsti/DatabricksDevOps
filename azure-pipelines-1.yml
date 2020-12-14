@@ -17,7 +17,7 @@ variables:
 steps:
 - script: |
     echo $REGION
-    echo $subscriptionName
+    echo $SUBSCRIPTIONNAME
     echo $REGION
     echo $(sub_name)
   displayName: 'Show Variable Values'
