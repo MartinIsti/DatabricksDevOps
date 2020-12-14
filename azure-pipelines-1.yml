@@ -13,8 +13,8 @@ variables:
 - group: dev_us-east-1
 
 steps:
-- script:
-    echo $REGION
+- script: |
     echo $REGION
     echo $subscriptionName
+    echo $REGION
   displayName: 'Show Variable Values'
