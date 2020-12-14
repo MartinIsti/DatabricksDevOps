@@ -10,10 +10,10 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-- group: EnvironmentConfigurationVariables
+- group: dev_us-east-2
 
 steps:
-- script: echo $subscriptionName
+- script: echo $REGION
   displayName: 'Run a one-line script'
 
 - task: PowerShell@2
