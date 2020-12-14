@@ -1,6 +1,7 @@
 [CmdletBinding()]
 param(
-  $rgName
+  $rgName,
+  $defaultLocation
 )
 
 $rgExists = (az group exists --name $rgName)
