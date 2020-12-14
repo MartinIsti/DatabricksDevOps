@@ -28,6 +28,12 @@ steps:
 #    scriptLocation: 'inlineScript'
 #    inlineScript: |
 #      Write-Host "The value of project_name is $env:project_name"
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'ARM'
+    scriptType: 'pscore'
+    scriptLocation: 'scriptPath'
+    scriptPath: '00 - Preparation.ps1'
 
 - task: AzureCLI@2
   inputs:
