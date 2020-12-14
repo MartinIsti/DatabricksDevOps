@@ -9,8 +9,10 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-steps:
+variables:
+- group: dev_us-east-1
 
+steps:
 - script: |
     echo $REGION
   displayName: 'Show Variable Values'
