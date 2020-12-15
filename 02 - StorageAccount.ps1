@@ -11,7 +11,7 @@
     $processContainer = 'processedStorage'
 
 # check storage account existence
-    $storageNameAvailable = az storage account check-name --name 'datacicd88922' --query nameAvailable
+    $storageNameAvailable = az storage account check-name --name $storageAccountName --query nameAvailable
 
     if ($storageNameAvailable -eq 'true') {
         # storage account
