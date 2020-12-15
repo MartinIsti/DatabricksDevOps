@@ -11,9 +11,9 @@
     $processContainer = 'processed-storage'
 
 # check storage account existence
-    $storageNameAvailable = az storage account check-name --name $storageAccountName --query nameAvailable
+    # $storageNameAvailable = az storage account check-name --name $storageAccountName --query nameAvailable
     
-    Write-Host $storageNameAvailable
+    # Write-Host $storageNameAvailable
 
     # if ($storageNameAvailable -eq 'true') {
         # storage account
