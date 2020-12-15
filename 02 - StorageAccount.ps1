@@ -12,9 +12,7 @@
     $rawContainer = 'raw-storage'
     $stageContainer = 'stage-storage'
     $processContainer = 'processed-storage'
-    
-    # $storageAccountName2 = 'storageacc20201215'
-    
+       
 # check storage account existence
     $storageNameAvailable = az storage account check-name --name $storageAccountName --query nameAvailable 
     
