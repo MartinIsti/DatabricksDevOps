@@ -14,7 +14,7 @@
     $storageNameAvailable = az storage account check-name --name $storageAccountName
     # --query nameAvailable 
     
-    Write-Host $storageNameAvailable
+    # Write-Host $storageNameAvailable
 
     # if ($storageNameAvailable -eq 'true') {
         # storage account
