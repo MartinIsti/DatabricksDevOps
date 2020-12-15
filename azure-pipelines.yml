@@ -13,11 +13,15 @@ variables:
 - group: EnvironmentVariables
 
 steps:
+- script: echo $storageAccountName
+  displayName: 'Show variable(s)'
+
 #- script: az --version
 #  displayName: 'Show Azure CLI version'
   
 #- script: az upgrade --yes
 #  displayName: 'Upgrade Azure CLI version if needed'
+
 - task: AzureCLI@2
   inputs:
     azureSubscription: 'ARM'
