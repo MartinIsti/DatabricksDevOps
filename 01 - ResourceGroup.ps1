@@ -5,6 +5,9 @@ param(
   $defaultLocation
 )
 
+  Write-Host $rgName
+  Write-Host $defaultLocation
+
 # check if resource group exists
 $rgExists = (az group exists --name $rgName)
 
