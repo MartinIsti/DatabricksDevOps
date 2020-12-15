@@ -36,4 +36,4 @@ steps:
     scriptType: 'pscore'
     scriptLocation: 'scriptPath'
     scriptPath: '02 - StorageAccount.ps1'
-    arguments: '-rgName $(rgName) -storageAccountName $($storageAccountName)'
+    arguments: '-rgName $(rgName) -storageAccountName $(storageAccountName)'
