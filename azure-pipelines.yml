@@ -22,13 +22,13 @@ steps:
 #- script: az upgrade --yes
 #  displayName: 'Upgrade Azure CLI version if needed'
 
-- task: AzureCLI@2
-  inputs:
-    azureSubscription: 'ARM'
-    scriptType: 'pscore'
-    scriptLocation: 'scriptPath'
-    scriptPath: '01 - ResourceGroup.ps1'
-    arguments: '-rgName $(rgName) -defaultLocation $(defaultLocation)'
+#- task: AzureCLI@2
+#  inputs:
+#    azureSubscription: 'ARM'
+#    scriptType: 'pscore'
+#    scriptLocation: 'scriptPath'
+#    scriptPath: '01 - ResourceGroup.ps1'
+#    arguments: '-rgName $(rgName) -defaultLocation $(defaultLocation)'
 
 - task: AzureCLI@2
   inputs:
