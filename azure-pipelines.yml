@@ -37,3 +37,10 @@ steps:
     scriptLocation: 'scriptPath'
     scriptPath: '02 - StorageAccount.ps1'
     arguments: '-rgName $(rgName) -storageAccountName $(storageAccountName)'
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'ARM'
+    scriptType: 'pscore'
+    scriptLocation: 'scriptPath'
+    scriptPath: '03 - KeyVault.ps1'
+    arguments: '-rgName $(rgName) -keyVaultName $(keyVaultName)'
