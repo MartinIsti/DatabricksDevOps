@@ -22,7 +22,7 @@
 
      if ($storageNameAvailable -eq 'true') {
         # storage account
-        az storage account create --name $storageAccountName2 --resource-group $rgName --sku Standard_RAGRS --kind StorageV2
+        az storage account create --name $storageAccountName --resource-group $rgName --sku Standard_RAGRS --kind StorageV2
 
         # connection string to avoid permission warnings
         $connectionString=az storage account show-connection-string --name $storageAccountName --query connectionString -o tsv
