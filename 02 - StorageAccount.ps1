@@ -1,14 +1,14 @@
 # parameters
     [CmdletBinding()]
     param(
-      $rgName,
-      $storageAccountName
+        $rgName,
+        $storageAccountName
     )
 
 # variables
-    $rawContainer = 'rawStorage'
-    $stageContainer = 'stageStorage'
-    $processContainer = 'processedStorage'
+    $rawContainer = 'raw-storage'
+    $stageContainer = 'stage-storage'
+    $processContainer = 'processed-storage'
 
 # check storage account existence
     $storageNameAvailable = az storage account check-name --name $storageAccountName --query nameAvailable
@@ -17,8 +17,11 @@
         # storage account
         az storage account create --name $storageAccountName --resource-group $rgName --sku Standard_RAGRS --kind StorageV2
 
+        # connection string to avoid permission warnings
+        $connectionString=az storage account show-connection-string --name $storageAccountName --query connectionString -o tsv
+
         # containers
-        az storage container create -n $rawContainer     --account-name $storageAccountName
-        az storage container create -n $stageContainer   --account-name $storageAccountName
-        az storage container create -n $processContainer --account-name $storageAccountName
+        az storage container create --name $rawContainer     --connection-string $connectionString
+        az storage container create --name $stageContainer   --connection-string $connectionString
+        az storage container create --name $processContainer --connection-string $connectionString
     }
