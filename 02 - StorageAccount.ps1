@@ -5,6 +5,9 @@
         $storageAccountName
     )
 
+    Write-Host $rgName
+    Write-Host $storageAccountName
+
 # variables
     $rawContainer = 'raw-storage'
     $stageContainer = 'stage-storage'
