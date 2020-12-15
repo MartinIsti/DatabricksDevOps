@@ -11,34 +11,26 @@ pool:
 
 variables:
 - group: EnvironmentVariables
-- name: project_name
-  value: "foo"
 
 steps:
-- script: |
-    echo $defaultLocation
-    echo $DEFAULTLOCATION
-    echo $(defaultLocation)
-  displayName: 'Show variables'
-
-#- task: AzureCLI@2
-#  inputs:
-#    azureSubscription: 'ARM'
-#    scriptType: 'pscore'
-#    scriptLocation: 'inlineScript'
-#    inlineScript: |
-#      Write-Host "The value of project_name is $env:project_name"
-
 #- script: az --version
 #  displayName: 'Show Azure CLI version'
   
 #- script: az upgrade --yes
 #  displayName: 'Upgrade Azure CLI version if needed'
+#- task: AzureCLI@2
+#  inputs:
+#    azureSubscription: 'ARM'
+#    scriptType: 'pscore'
+#    scriptLocation: 'scriptPath'
+#    scriptPath: '01 - ResourceGroup.ps1'
+#    arguments: '-rgName $(rgName) -defaultLocation $(defaultLocation)'
 
 - task: AzureCLI@2
   inputs:
     azureSubscription: 'ARM'
     scriptType: 'pscore'
-    scriptLocation: 'scriptPath'
-    scriptPath: '01 - ResourceGroup.ps1'
-    arguments: '-rgName $(rgName) -defaultLocation $(defaultLocation)'
+    scriptLocation: 'inlineScript'
+    inlineScript: 'Get-AzureStorageAccount'
+
+
