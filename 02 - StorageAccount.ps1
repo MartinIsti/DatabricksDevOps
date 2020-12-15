@@ -10,14 +10,10 @@
     $stageContainer = 'stage-storage'
     $processContainer = 'processed-storage'
     
-    $storageAccountName2 = 'storageacc20201215'
-
 # check storage account existence
-    # $storageNameAvailable = 
-    # az storage account check-name --name $storageAccountName # --query nameAvailable
-    az storage account check-name --name $storageAccountName2
+    $storageNameAvailable = az storage account check-name --name $storageAccountName --query nameAvailable 
     
-    # Write-Host $storageNameAvailable
+    Write-Host $storageNameAvailable
 
     # if ($storageNameAvailable -eq 'true') {
         # storage account
