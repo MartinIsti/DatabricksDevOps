@@ -13,7 +13,7 @@ variables:
 - group: EnvironmentVariables
 
 steps:
-- script: echo $storageAccountName
+- script: echo $(storageAccountName)
   displayName: 'Show variable(s)'
 
 #- script: az --version
