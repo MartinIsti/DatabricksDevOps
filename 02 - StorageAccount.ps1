@@ -31,4 +31,4 @@
         az storage container create --name $rawContainer     --connection-string $connectionString
         az storage container create --name $stageContainer   --connection-string $connectionString
         az storage container create --name $processContainer --connection-string $connectionString
-    # }
+    }
