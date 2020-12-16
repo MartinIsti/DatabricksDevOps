@@ -44,3 +44,10 @@ steps:
     scriptLocation: 'scriptPath'
     scriptPath: '03 - KeyVault.ps1'
     arguments: '-rgName $(rgName) -keyVaultName $(keyVaultName)'
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'ARM'
+    scriptType: 'pscore'
+    scriptLocation: 'scriptPath'
+    scriptPath: '04 - AzureDataFactory.ps1'
+    arguments: '-rgName $(rgName) -ADFName $(ADFName)'
