@@ -10,6 +10,9 @@
 
 # variables
     $resourceType = 'Microsoft.DataFactory/factories'
+
+# extension(s)
+    az extension add --name datafactory
    
 # create if not exists
     $resourceExists = az resource list --query "[?type == '$resourceType' && name == '$ADFName'].{Name:name}" --output tsv
