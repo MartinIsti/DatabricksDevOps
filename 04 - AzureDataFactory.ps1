@@ -16,7 +16,7 @@
 
     if (!$resourceExists) {
         Write-Host "Resource does not exist. Welcome the Creator!"
-        az keyvault create --resource-group $rgName --name $ADFName
+        az DataFactory create --resource-group $rgName --name $ADFName
     } else {
         Write-Host "Resource already exists I sit tight."
     }
