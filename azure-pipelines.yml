@@ -57,4 +57,4 @@ steps:
     scriptType: 'pscore'
     scriptLocation: 'scriptPath'
     scriptPath: '05 - AzureDatabricks.ps1'
-    arguments: '-rgName $(rgName) -databricksWorkspace $(databricksWorkspace)'
+    arguments: '-rgName $(rgName) -defaultLocation $(defaultLocation) -databricksWorkspace $(databricksWorkspace) -databricksSKU $(databricksSKU)'
