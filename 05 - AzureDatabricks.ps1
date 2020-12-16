@@ -2,11 +2,15 @@
     [CmdletBinding()]
     param(
         $rgName,
-        $databricksWorkspace
+        $defaultLocation,
+        $databricksWorkspace,
+        $databricksSKU
     )
 
     Write-Host $rgName
+    Write-Host $defaultLocation
     Write-Host $databricksWorkspace
+    Write-Host $databricksSKU
 
 # variables
     $resourceType = 'Microsoft.Databricks/workspaces'
@@ -19,7 +23,7 @@
 
     if (!$resourceExists) {
         Write-Host "Resource does not exist. Welcome the Creator!"
-        az databricks workspace create --resource-group $rgName --name $databricksWorkspace
+        az databricks workspace create --resource-group $rgName --location $defaultLocation --name $databricksWorkspace --sku $databricksSKU
     } else {
         Write-Host "Resource already exists I sit tight."
     }
