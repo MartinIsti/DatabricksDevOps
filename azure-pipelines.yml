@@ -51,3 +51,10 @@ steps:
     scriptLocation: 'scriptPath'
     scriptPath: '04 - AzureDataFactory.ps1'
     arguments: '-rgName $(rgName) -ADFName $(ADFName)'
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'ARM'
+    scriptType: 'pscore'
+    scriptLocation: 'scriptPath'
+    scriptPath: '05 - AzureDatabricks.ps1'
+    arguments: '-rgName $(rgName) -databricksWorkspace $(databricksWorkspace)'
