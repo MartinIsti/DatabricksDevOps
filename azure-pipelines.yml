@@ -72,7 +72,6 @@ steps:
     script: |
       #!/bin/bash
       
-      cat config.cluster.json | sed "s/CLUSTER_NAME/MI_CLUSTER/g" > /tmp/conf.json
       # modify the configuration JSON with an environment suffix for the cluster name
       # note that the pipeline changes into the directory of this script
       
