@@ -109,7 +109,6 @@ steps:
                   "PYSPARK_PYTHON": "/databricks/python3/bin/python3"
               },
               "autotermination_minutes": 10,
-              "enable_elastic_disk": true,
               "cluster_source": "UI",
               "init_scripts": []
           }
