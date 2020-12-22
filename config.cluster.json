@@ -1,5 +1,5 @@
 {
-    "cluster_name": "CLUSTER_NAME",
+    "cluster_name": "MI_Cluster_101",
     "spark_version": "6.0.x-scala2.11",
     "spark_conf": {
         "spark.sql.execution.arrow.enabled": "true"
