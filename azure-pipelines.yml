@@ -63,9 +63,23 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      pip install wheel
+      #!/bin/bash
 
+      HOST=https://adb-490638034087336.16.azuredatabricks.net/
+      TOKEN=dapie49f2228797aa96523e4ae22a7049b50
+      if [[ -z $HOST || -z $TOKEN ]]
+      then
+          echo 'The Databricks host URL and secret access token must be passed from job VM'
+          exit 1
+      fi
+      
+      pip install wheel
       python -m pip install databricks-cli
+      echo $HOME
+      echo -e "[DEFAULT]\nhost: $HOST\ntoken: $TOKEN" > $HOME/.databrickscfg
+      echo -e "Testing the conncection - listing dbfs:/"
+      dbfs ls
+
 - task: Bash@3
   inputs:
     targetType: 'inline'
