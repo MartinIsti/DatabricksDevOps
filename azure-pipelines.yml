@@ -30,31 +30,40 @@ steps:
 #    scriptPath: '01 - ResourceGroup.ps1'
 #    arguments: '-rgName $(rgName) -defaultLocation $(defaultLocation)'
 
-- task: AzureCLI@2
+# - task: AzureCLI@2
+#   inputs:
+#     azureSubscription: 'ARM'
+#     scriptType: 'pscore'
+#     scriptLocation: 'scriptPath'
+#     scriptPath: '02 - StorageAccount.ps1'
+#     arguments: '-rgName $(rgName) -storageAccountName $(storageAccountName)'
+# - task: AzureCLI@2
+#   inputs:
+#     azureSubscription: 'ARM'
+#     scriptType: 'pscore'
+#     scriptLocation: 'scriptPath'
+#     scriptPath: '03 - KeyVault.ps1'
+#     arguments: '-rgName $(rgName) -keyVaultName $(keyVaultName)'
+# - task: AzureCLI@2
+#   inputs:
+#     azureSubscription: 'ARM'
+#     scriptType: 'pscore'
+#     scriptLocation: 'scriptPath'
+#     scriptPath: '04 - AzureDataFactory.ps1'
+#     arguments: '-rgName $(rgName) -ADFName $(ADFName)'
+# - task: AzureCLI@2
+#   inputs:
+#     azureSubscription: 'ARM'
+#     scriptType: 'pscore'
+#     scriptLocation: 'scriptPath'
+#     scriptPath: '05 - AzureDatabricks.ps1'
+#     arguments: '-rgName $(rgName) -defaultLocation $(defaultLocation) -databricksWorkspace $(databricksWorkspace) -databricksSKU $(databricksSKU)'
+
+- task: Bash@3
   inputs:
-    azureSubscription: 'ARM'
-    scriptType: 'pscore'
-    scriptLocation: 'scriptPath'
-    scriptPath: '02 - StorageAccount.ps1'
-    arguments: '-rgName $(rgName) -storageAccountName $(storageAccountName)'
-- task: AzureCLI@2
-  inputs:
-    azureSubscription: 'ARM'
-    scriptType: 'pscore'
-    scriptLocation: 'scriptPath'
-    scriptPath: '03 - KeyVault.ps1'
-    arguments: '-rgName $(rgName) -keyVaultName $(keyVaultName)'
-- task: AzureCLI@2
-  inputs:
-    azureSubscription: 'ARM'
-    scriptType: 'pscore'
-    scriptLocation: 'scriptPath'
-    scriptPath: '04 - AzureDataFactory.ps1'
-    arguments: '-rgName $(rgName) -ADFName $(ADFName)'
-- task: AzureCLI@2
-  inputs:
-    azureSubscription: 'ARM'
-    scriptType: 'pscore'
-    scriptLocation: 'scriptPath'
-    scriptPath: '05 - AzureDatabricks.ps1'
-    arguments: '-rgName $(rgName) -defaultLocation $(defaultLocation) -databricksWorkspace $(databricksWorkspace) -databricksSKU $(databricksSKU)'
+    targetType: 'inline'
+    script: |
+      python -m pip install databricks-cli
+      
+      echo -e "Testing the conncection - listing dbfs:/"
+      dbfs ls
