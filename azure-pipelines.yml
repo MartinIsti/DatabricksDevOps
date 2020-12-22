@@ -79,6 +79,45 @@ steps:
       echo -e "[DEFAULT]\nhost: $HOST\ntoken: $TOKEN" > $HOME/.databrickscfg
       echo -e "Testing the conncection - listing dbfs:/"
       #dbfs ls
+- task: PythonScript@0
+  inputs:
+    scriptSource: 'inline'
+    script: |
+      import requests
+      
+      DOMAIN = 'adb-490638034087336.16.azuredatabricks.net/'
+      TOKEN = 'dapie49f2228797aa96523e4ae22a7049b50'
+      
+      response = requests.post(
+        'https://%s/api/2.0/clusters/create' % (DOMAIN),
+        headers={'Authorization': 'Bearer %s' % TOKEN},
+        json=
+          {
+              "num_workers": 0,
+              "cluster_name": "TescoGazdasagosCluster",
+              "spark_version": "7.4.x-scala2.12",
+              "spark_conf": {
+                  "spark.master": "local[*]",
+                  "spark.databricks.cluster.profile": "singleNode"
+              },
+              "node_type_id": "Standard_DS3_v2",
+              "ssh_public_keys": [],
+              "custom_tags": {
+                  "ResourceClass": "SingleNode"
+              },
+              "spark_env_vars": {
+                  "PYSPARK_PYTHON": "/databricks/python3/bin/python3"
+              },
+              "autotermination_minutes": 10,
+              "enable_elastic_disk": true,
+              "cluster_source": "UI",
+              "init_scripts": []
+          }
+      )
+      if response.status_code == 200:
+        print(response.json()['cluster_id'])
+      else:
+        print("Error launching cluster: %s: %s" % (response.json()["error_code"], response.json()["message"]))
 
 - task: Bash@3
   inputs:
