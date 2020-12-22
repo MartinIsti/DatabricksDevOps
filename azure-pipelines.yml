@@ -76,6 +76,6 @@ steps:
       # note that the pipeline changes into the directory of this script
       
       echo "Creating Cluster"
-      CLUSTER_ID=$(databricks clusters create --json-file /tmp/conf.json | jq -r '.cluster_id')
+      CLUSTER_ID=$(databricks clusters create --json-file config.cluster.json | jq -r '.cluster_id')
       
       
