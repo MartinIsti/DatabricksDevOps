@@ -29,7 +29,7 @@ stages:
 
         - task: ShellScript@2
           inputs:
-            scriptPath: databricks.configure.sh
+            scriptPath: databricks/databricks.configure.sh
             args: "$(databricks_host) $(databricks_token)"
           displayName: "Install and configure the Databricks CLI"
 
