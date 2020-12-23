@@ -6,7 +6,8 @@ clusterName=$1
 
 # name the cluster based on variable
 # modify the configuration JSON with an environment suffix for the cluster name
-cat /home/vsts/work/1/s/databricks/cluster.template.json | sed "s/CLUSTER_NAME/$clusterName/g" > /tmp/conf.json
+# cat /home/vsts/work/1/s/databricks/cluster.template.json | sed "s/CLUSTER_NAME/$clusterName/g" > /tmp/conf.json
+cat cluster.template.json | sed "s/CLUSTER_NAME/$clusterName/g" > /tmp/conf.json
 
 echo "Creating Cluster"
 clusterID=$(databricks clusters create --json-file /tmp/conf.json | jq -r '.cluster_id')
