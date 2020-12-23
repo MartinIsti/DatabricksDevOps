@@ -29,7 +29,7 @@ stages:
 
         - task: ShellScript@2
           inputs:
-            scriptPath: pipelines/databricks-cli-config.sh
+            scriptPath: brick-cli-config.sh
             args: "$(databricks_host) $(databricks_token)"
           displayName: "Install and configure the Databricks CLI"
 
@@ -40,11 +40,11 @@ stages:
 #          continueOnError: "true"
 #          displayName: "Delete previous cluster version (if existing)"
 
-        - task: ShellScript@2
-          inputs:
-            scriptPath: pipelines/databricks-cluster-create.sh
-            args: "HelloCluster"
-          displayName: "Create new cluster"
+#        - task: ShellScript@2
+#          inputs:
+#            scriptPath: pipelines/databricks-cluster-create.sh
+#            args: "HelloCluster"
+#          displayName: "Create new cluster"
 
 #        - task: ShellScript@2
 #          inputs:
