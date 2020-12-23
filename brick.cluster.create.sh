@@ -10,18 +10,19 @@ cat brick.cluster.definition.json | sed "s/CLUSTER_NAME/$CLUSTER_NAME/g" > /tmp/
 
 echo "Creating Cluster"
 # CLUSTER_ID=$(databricks clusters create --json-file /tmp/conf.json | jq -r '.cluster_id')
-CLUSTER_ID=$(databricks clusters create --json-file brick.cluster.definition.json | jq -r '.cluster_id')
+# CLUSTER_ID=$(databricks clusters create --json-file brick.cluster.definition.json | jq -r '.cluster_id')
+databricks clusters create --json-file brick.cluster.definition.json
 
-STATE=$(databricks clusters list --output json | jq -r --arg I "$CLUSTER_ID" '.clusters[] | select(.cluster_id == $I) | .state')
+# STATE=$(databricks clusters list --output json | jq -r --arg I "$CLUSTER_ID" '.clusters[] | select(.cluster_id == $I) | .state')
 
-echo "Wait for cluster to be PENDING"
-while [[ "$STATE" != "PENDING" ]]
-do
-    STATE=$(databricks clusters list --output json | jq -r --arg I "$CLUSTER_ID" '.clusters[] | select(.cluster_name == $I) | .state')
-done
+# echo "Wait for cluster to be PENDING"
+# while [[ "$STATE" != "PENDING" ]]
+# do
+#    STATE=$(databricks clusters list --output json | jq -r --arg I "$CLUSTER_ID" '.clusters[] | select(.cluster_name == $I) | .state')
+# done
 
 # the API is flaky and the library install complains about terminated clusters
 # so wait a bit more before continuing task
 sleep 10
 
-echo "Cluster $CLUSTER_ID is pending"
+# echo "Cluster $CLUSTER_ID is pending"
