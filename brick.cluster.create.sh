@@ -9,7 +9,8 @@ cat brick.cluster.definition.json | sed "s/CLUSTER_NAME/$CLUSTER_NAME/g" > /tmp/
 # note that the pipeline changes into the directory of this script
 
 echo "Creating Cluster"
-CLUSTER_ID=$(databricks clusters create --json-file /tmp/conf.json | jq -r '.cluster_id')
+# CLUSTER_ID=$(databricks clusters create --json-file /tmp/conf.json | jq -r '.cluster_id')
+CLUSTER_ID=$(databricks clusters create --json-file brick.cluster.definition.json | jq -r '.cluster_id')
 
 STATE=$(databricks clusters list --output json | jq -r --arg I "$CLUSTER_ID" '.clusters[] | select(.cluster_id == $I) | .state')
 
