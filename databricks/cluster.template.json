@@ -1,0 +1,21 @@
+{
+    "num_workers": 0,
+    "cluster_name": "CLUSTER_NAME",
+    "spark_version": "7.4.x-scala2.12",
+    "spark_conf": {
+        "spark.master": "local[*]",
+        "spark.databricks.cluster.profile": "singleNode"
+    },
+    "node_type_id": "Standard_DS3_v2",
+    "ssh_public_keys": [],
+    "custom_tags": {
+        "ResourceClass": "SingleNode"
+    },
+    "spark_env_vars": {
+        "PYSPARK_PYTHON": "/databricks/python3/bin/python3"
+    },
+    "autotermination_minutes": 10,
+    "enable_elastic_disk": true,
+    "cluster_source": "UI",
+    "init_scripts": []
+}
