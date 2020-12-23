@@ -40,11 +40,11 @@ stages:
 #          continueOnError: "true"
 #          displayName: "Delete previous cluster version (if existing)"
 
-#        - task: ShellScript@2
-#          inputs:
-#            scriptPath: pipelines/databricks-cluster-create.sh
-#            args: "HelloCluster"
-#          displayName: "Create new cluster"
+        - task: ShellScript@2
+          inputs:
+            scriptPath: brick.cluster.create.sh
+            args: "HelloCluster"
+          displayName: "Create new cluster"
 
 #        - task: ShellScript@2
 #          inputs:
