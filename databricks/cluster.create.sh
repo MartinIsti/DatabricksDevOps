@@ -9,8 +9,10 @@ clusterName=$1
 # cat /home/vsts/work/1/s/databricks/cluster.template.json | sed "s/CLUSTER_NAME/$clusterName/g" > /tmp/conf.json
 cat cluster.template.json | sed "s/CLUSTER_NAME/$clusterName/g" > /tmp/conf.json
 
+echo /tmp/conf.json
+
 echo "Creating Cluster"
-clusterID=$(databricks clusters create --json-file /tmp/conf.json | jq -r '.cluster_id')
+# clusterID=$(databricks clusters create --json-file /tmp/conf.json | jq -r '.cluster_id')
 
 # STATE=$(databricks clusters list --output json | jq -r --arg I "$clusterID" '.clusters[] | select(.cluster_id == $I) | .state')
 
