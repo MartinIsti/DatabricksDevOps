@@ -4,7 +4,7 @@ CLUSTER_NAME=$1
 [[ -z "$CLUSTER_NAME" ]] && exit 1
 # cluster name must be passed as parameter
 
-cat config.cluster.json | sed "s/CLUSTER_NAME/$CLUSTER_NAME/g" > /tmp/conf.json
+cat brick.cluster.definition.json | sed "s/CLUSTER_NAME/$CLUSTER_NAME/g" > /tmp/conf.json
 # modify the configuration JSON with an environment suffix for the cluster name
 # note that the pipeline changes into the directory of this script
 
