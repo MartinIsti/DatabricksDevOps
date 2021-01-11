@@ -16,73 +16,71 @@ steps:
 - script: echo $(keyVaultName)
   displayName: 'Show variable(s)'
 
-#- script: az --version
-#  displayName: 'Show Azure CLI version'
+- script: az --version
+  displayName: 'Show Azure CLI version'
   
-#- script: az upgrade --yes
-#  displayName: 'Upgrade Azure CLI version if needed'
+- script: az upgrade --yes
+  displayName: 'Upgrade Azure CLI version if needed'
 
-#- task: AzureCLI@2
-#  inputs:
-#    azureSubscription: 'ARM'
-#    scriptType: 'pscore'
-#    scriptLocation: 'scriptPath'
-#    scriptPath: '01 - ResourceGroup.ps1'
-#    arguments: '-rgName $(rgName) -defaultLocation $(defaultLocation)'
-
-# - task: AzureCLI@2
-#   inputs:
-#     azureSubscription: 'ARM'
-#     scriptType: 'pscore'
-#     scriptLocation: 'scriptPath'
-#     scriptPath: '02 - StorageAccount.ps1'
-#     arguments: '-rgName $(rgName) -storageAccountName $(storageAccountName)'
-# - task: AzureCLI@2
-#   inputs:
-#     azureSubscription: 'ARM'
-#     scriptType: 'pscore'
-#     scriptLocation: 'scriptPath'
-#     scriptPath: '03 - KeyVault.ps1'
-#     arguments: '-rgName $(rgName) -keyVaultName $(keyVaultName)'
-# - task: AzureCLI@2
-#   inputs:
-#     azureSubscription: 'ARM'
-#     scriptType: 'pscore'
-#     scriptLocation: 'scriptPath'
-#     scriptPath: '04 - AzureDataFactory.ps1'
-#     arguments: '-rgName $(rgName) -ADFName $(ADFName)'
-# - task: AzureCLI@2
-#   inputs:
-#     azureSubscription: 'ARM'
-#     scriptType: 'pscore'
-#     scriptLocation: 'scriptPath'
-#     scriptPath: '05 - AzureDatabricks.ps1'
-#     arguments: '-rgName $(rgName) -defaultLocation $(defaultLocation) -databricksWorkspace $(databricksWorkspace) -databricksSKU $(databricksSKU)'
-
-- task: Bash@3
+- task: AzureCLI@2
   inputs:
-    targetType: 'inline'
-    script: |
-      #!/bin/bash
+    azureSubscription: 'ARM'
+    scriptType: 'pscore'
+    scriptLocation: 'scriptPath'
+    scriptPath: '01 - ResourceGroup.ps1'
+    arguments: '-rgName $(rgName) -defaultLocation $(defaultLocation)'
 
-      HOST=https://adb-490638034087336.16.azuredatabricks.net/
-      TOKEN=dapie49f2228797aa96523e4ae22a7049b50
-      if [[ -z $HOST || -z $TOKEN ]]
-      then
-          echo 'The Databricks host URL and secret access token must be passed from job VM'
-          exit 1
-      fi
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'ARM'
+    scriptType: 'pscore'
+    scriptLocation: 'scriptPath'
+    scriptPath: '02 - StorageAccount.ps1'
+    arguments: '-rgName $(rgName) -storageAccountName $(storageAccountName)'
+- task: AzureCLI@2
+  inputs:
+     azureSubscription: 'ARM'
+     scriptType: 'pscore'
+     scriptLocation: 'scriptPath'
+     scriptPath: '03 - KeyVault.ps1'
+     arguments: '-rgName $(rgName) -keyVaultName $(keyVaultName)'
+- task: AzureCLI@2
+  inputs:
+     azureSubscription: 'ARM'
+     scriptType: 'pscore'
+     scriptLocation: 'scriptPath'
+     scriptPath: '04 - AzureDataFactory.ps1'
+     arguments: '-rgName $(rgName) -ADFName $(ADFName)'
+- task: AzureCLI@2
+  inputs:
+     azureSubscription: 'ARM'
+     scriptType: 'pscore'
+     scriptLocation: 'scriptPath'
+     scriptPath: '05 - AzureDatabricks.ps1'
+     arguments: '-rgName $(rgName) -defaultLocation $(defaultLocation) -databricksWorkspace $(databricksWorkspace) -databricksSKU $(databricksSKU)'
 
-      pip install wheel
-      python -m pip install databricks-cli
-      echo $HOME
-      echo -e "[DEFAULT]\nhost: $HOST\ntoken: $TOKEN" > $HOME/.databrickscfg
-      echo -e "Testing the conncection - listing dbfs:/"
+#- task: Bash@3
+#  inputs:
+#    targetType: 'inline'
+#    script: |
+#      #!/bin/bash
+
+#      HOST=https://adb-490638034087336.16.azuredatabricks.net/
+#      TOKEN=dapie49f2228797aa96523e4ae22a7049b50
+#      if [[ -z $HOST || -z $TOKEN ]]
+#      then
+#          echo 'The Databricks host URL and secret access token must be passed from job VM'
+#          exit 1
+#      fi
+
+#      pip install wheel
+#      python -m pip install databricks-cli
+#      echo $HOME
+#      echo -e "[DEFAULT]\nhost: $HOST\ntoken: $TOKEN" > $HOME/.databrickscfg
+#      echo -e "Testing the conncection - listing dbfs:/"
       #dbfs ls
 
-- task: Bash@3
-  inputs:
-    targetType: 'inline'
-    script: 'databricks clusters create --json-file databricksCluster.json'
-      
-      
+#- task: Bash@3
+#  inputs:
+#    targetType: 'inline'
+#    script: 'databricks clusters create --json-file databricksCluster.json'
